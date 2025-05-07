@@ -57,5 +57,5 @@ for i in stockdata:
   df.loc[index] = i
   df.index = df.index + 1
 df=df.reset_index(drop=True)
-df.to_csv("StockInputData.csv", mode='a', header=not os.path.exists("StockInputData.csv"))
+df.to_csv("Stocks/StockInputData.csv", mode='a', header=not os.path.exists("StockInputData.csv"))
 #print(df)
