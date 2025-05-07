@@ -2,7 +2,7 @@ name: run grabData.py
 
 on:
   schedule:
-    - cron: '* 9 * * *' # At 09:00 AM
+    - cron: '* 13 * * *' # At 09:00 AM
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       - name: execute py script # run main.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: python grabData.py
+        run: python Stocks/grabData.py
 
       - name: commit files
         run: |
