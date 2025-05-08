@@ -12,19 +12,19 @@ class Block:
         self.hash = self.calculate_hash()
 
     def calculate_hash(self):
-        # scenario 1
-        # generate string
-        block_string = json.dumps(self.__dict__,sort_keys=True)
-
-        self.hash=sha256(block_string.encode('utf-8')).hexdigest()
-        print (self.hash)
-
-        return self.hash
+        block_data = {
+            'index': self.index,
+            'timestamp': self.timestamp,
+            'transactions': self.transactions,
+            'previous_hash': self.previous_hash,
+            'nonce': self.nonce
+        }
+        block_string = json.dumps(block_data, sort_keys=True)
+        return sha256(block_string.encode('utf-8')).hexdigest()
 
     def __str__(self):
         return (f"Block(index: {self.index}, timestamp: {self.timestamp}, transactions: {self.transactions}, "
                 f"previous_hash: {self.previous_hash}, hash: {self.hash})")
-
 
 class Blockchain:
     def __init__(self):
@@ -36,7 +36,29 @@ class Blockchain:
         return self.chain[-1]
 
     def mine_pending_transactions(self):
-        # scenario 2
+        previous_block = self.get_latest_block()
+        new_index = previous_block.index + 1
+        previous_hash = previous_block.hash
+
+        # Create the new block
+        new_block = Block(
+            index=new_index,
+            timestamp=time(),
+            transactions=self.pending_transactions.copy(),
+            previous_hash=previous_hash,
+            nonce=0
+        )
+
+        # Proof of work: adjust nonce until hash starts with '0' * difficulty
+        while not new_block.hash.startswith('0' * self.difficulty):
+            new_block.nonce += 1
+            new_block.hash = new_block.calculate_hash()
+
+        print(f"Block mined: {new_block.hash}")
+        self.chain.append(new_block)
+
+        # Clear pending transactions
+        self.pending_transactions = []
         pass
 
     def create_transaction(self, transaction):
@@ -72,12 +94,10 @@ class Blockchain:
             chain_data += str(block) + "\n"
         return chain_data
 
-index = 1
-timestamp = 1620000000.0
-transactions = [{"sender": "Alice", "recipient": "Bob", "amount": 50}]
-previous_hash = "0" * 64  # 64 zeros for the genesis block
-nonce = 0  # Default nonce for mining
+if __name__ == "__main__":
+    blockchain = Blockchain()
+    blockchain.create_transaction({ "sender": "Alice", "recipient": "Bob", "amount": 50 })
+    blockchain.mine_pending_transactions()
 
-# Create the block
-block = Block(index, timestamp, transactions, previous_hash, nonce)
-print(block)
+    print("\nAs a result, the blockchain now contains two blocks:\n")
+    print(blockchain)
