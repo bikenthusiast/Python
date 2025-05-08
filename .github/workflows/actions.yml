@@ -2,7 +2,7 @@ name: run grabData.py
 
 on:
   schedule:
-    - cron: '* 15 * * *' # At 09:00 AM
+    - cron: '0 13 * * *' # At 09:00 AM
 
 jobs:
   build:
