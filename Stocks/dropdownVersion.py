@@ -60,7 +60,7 @@ for company in companies:
     visibility = [False] * (2 * len(companies))
     idx = list(companies).index(company)
     visibility[2 * idx] = True     # Preis
-    visibility[2 * idx + 1] = True # Veränderung
+    visibility[2 * idx + 1] = True  # Veränderung
 
     dropdown_buttons.append({
         "label": company,
@@ -92,6 +92,5 @@ fig.update_layout(
     yaxis2_title="Veränderung (%)",
     template="plotly_white"
 )
-
 # Interaktives Plot anzeigen
 fig.show()
