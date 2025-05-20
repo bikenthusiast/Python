@@ -94,3 +94,4 @@ fig.update_layout(
 )
 # Interaktives Plot anzeigen
 fig.show()
+

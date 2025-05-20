@@ -14,7 +14,8 @@ urls=["https://www.boerse.de/aktien/Allianz-Aktie/DE0008404005",
       "https://www.boerse.de/aktien/Alphabet-C-Aktie/US02079K1079",
       "https://www.boerse.de/aktien/Amazon-Aktie/US0231351067",
       "https://www.boerse.de/aktien/Apple-Aktie/US0378331005",
-      "https://www.boerse.de/aktien/CyberArk-Software-Aktie/IL0011334468"
+      "https://www.boerse.de/aktien/CyberArk-Software-Aktie/IL0011334468",
+      "https://www.boerse.de/aktien/Nvidia-Aktie/US67066G1040"
 
       ]
 
