@@ -15,7 +15,9 @@ positions = {
     "IL0011334468": 8,      # CyberArk
     "US0231351067": 7,      # Amazon
 }
-# === CSV einlesen ==
+# === CSV einlesen ===
+df = pd.read_csv("InputData/StockInputData.csv", parse_dates=["Date"])
+
 # === "Change" bereinigen ===
 df["Change"] = pd.to_numeric(
     df["Change"].str.replace('%', '', regex=False).str.replace(',', '.', regex=False),
