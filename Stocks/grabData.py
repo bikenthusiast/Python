@@ -52,11 +52,17 @@ for url in urls:
 
 column_names = ["Date", "Company","ISIN","Price", "Change"]
 df = pd.DataFrame(columns = column_names)
-df['Change'] = df['Change'].str.replace('%', '').str.replace(',', '.').astype(float)
+# Clean price and change columns
+df['Price'] = df['Price'].str.replace(" EUR", "").str.replace(".", "").str.replace(",", ".").astype(float)
+df['Change'] = df['Change'].str.replace("%", "").str.replace(",", ".").astype(float)
+
 for i in stockdata:
   index=0
   df.loc[index] = i
   df.index = df.index + 1
 df=df.reset_index(drop=True)
-df.to_csv("Stocks/StockInputData.csv", mode='a', header=not os.path.exists("StockInputData.csv"))
-#print(df)
+df.to_csv("InputData/StockInputData.csv",
+          mode='a',
+          header=not os.path.exists("InputData/StockInputData.csv"),
+          index=False
+          )
