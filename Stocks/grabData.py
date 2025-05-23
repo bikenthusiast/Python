@@ -61,8 +61,8 @@ for i in stockdata:
   df.loc[index] = i
   df.index = df.index + 1
 df=df.reset_index(drop=True)
-df.to_csv("InputData/StockInputData.csv",
+df.to_csv("./InputData/StockInputData.csv",
           mode='a',
-          header=not os.path.exists("InputData/StockInputData.csv"),
+          header=not os.path.exists("./InputData/StockInputData.csv"),
           index=False
           )
