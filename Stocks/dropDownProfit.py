@@ -6,15 +6,16 @@ from CleanPrice import clean_price  # deine Bereinigungsfunktion für Preise
 
 # === Anzahl der gekauften Stücke pro Aktie (nach ISIN) ===
 # Anzahl der gekauften Stücke pro Aktie (ISIN)
-positions = {
-    "US0378331005": 11,     # Apple
-    "US67066G1040": 20,     # NVIDIA
-    "DE0008404005": 7,      # Allianz
-    "NL0010273215": 3,      # ASML
-    "US02079K1079": 12,      # Alphabet
-    "IL0011334468": 8,      # CyberArk
-    "US0231351067": 7,      # Amazon
-}
+positions = pd.read_csv("InputData/StockProperty.csv")
+#positions = {
+    #"US0378331005": 11,     # Apple
+    #"US67066G1040": 20,     # NVIDIA
+    #"DE0008404005": 7,      # Allianz
+    #"NL0010273215": 3,      # ASML
+    #"US02079K1079": 12,      # Alphabet
+    #"IL0011334468": 8,      # CyberArk
+    #"US0231351067": 7,      # Amazon
+#}
 # === CSV einlesen ===
 df = pd.read_csv("InputData/StockInputData.csv", parse_dates=["Date"])
 
