@@ -53,7 +53,3 @@ class TestConvergence(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-https://aistudio.google.com/apikey
-
-export GOOGLE_GENERATIVE_AI_API_KEY="AIzaSyAHi8bLmUNyjs_NEhtU6-DSijMVfeRmIYo"
