@@ -1,0 +1,17 @@
+###
+Web Applications
+###
+
+
+###
+Data Science/Utilities
+###
+
+- CSV Data Analyzer:** A tool that can load CSV files, perform basic statistical analysis (mean, median, mode, standard deviation), filter data, and visualize it using simple charts.
+
+- Local System Monitor: A utility that displays information about your computer's resources, such as CPU usage, memory usage, disk space, and network activity.
+
+- Web Scraper for Product Prices: A script that scrapes product information (name, price, reviews) from a few e-commerce
+
+- Stock Price Tracker: A program that fetches real-time (or near real-time) stock data from an API, displays price trends,
+    and allows users to set alerts for specific stock movements.
